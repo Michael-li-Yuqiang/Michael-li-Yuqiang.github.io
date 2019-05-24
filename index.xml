@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>https:Michael-li-Yuqiang.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>李宇强</title>
+    <link>http://Michael-li-Yuqiang.github.io/</link>
+    <description>Recent content on 李宇强</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 May 2019 20:10:14 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2019 12:37:01 +0800</lastBuildDate>
     
-	<atom:link href="https:Michael-li-Yuqiang.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://Michael-li-Yuqiang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Try it</title>
-      <link>https:Michael-li-Yuqiang.github.io/post/first/</link>
-      <pubDate>Fri, 17 May 2019 20:10:14 +0800</pubDate>
+      <title>Kmp算法</title>
+      <link>http://Michael-li-Yuqiang.github.io/post/kmp/</link>
+      <pubDate>Fri, 24 May 2019 12:37:01 +0800</pubDate>
       
-      <guid>https:Michael-li-Yuqiang.github.io/post/first/</guid>
-      <description>Your GitHub Learning Lab Repository for Introducing GitHub Welcome to your repository for your GitHub Learning Lab course. This repository will be used during the different activities that I will be guiding you through. See a word you don&amp;rsquo;t understand? We&amp;rsquo;ve included an emoji 📖 next to some key terms. Click on it to see its definition.
-Oh! I haven&amp;rsquo;t introduced myself&amp;hellip;
-I&amp;rsquo;m the GitHub Learning Lab bot and I&amp;rsquo;m here to help guide you in your journey to learn and master the various topics covered in this course.</description>
+      <guid>http://Michael-li-Yuqiang.github.io/post/kmp/</guid>
+      <description>简介 KMP算法是D.E.Knuth与V.R.Pratt和J.H.Morris同时发现的，因此人们称它为克努特-莫里斯-普拉特操作。此算法可以在O(m+n)的线性时间内完成串的模式匹配操作。
+我被这个算法的代码的简单性，以及用这样简单的代码在线性时间内完成操作感到不可思议。其基本思想是在子串的不匹配的情况下，子串不动，模式串进行滑动。
+代码如下 	int Index_KMP(SString S, SString T, int pos) { int i = pos, j = 1; while (i &amp;lt;= S[0] &amp;amp;&amp;amp; j &amp;lt;= T[0]) { if (j == 0 || S[i] == T[j]) { ++i; ++j; } else { j = next[j]; } } if (j &amp;gt; T[0]) return i - T[0]; else return 0; }  next数组 匹配过程是根据next数组进行的，而next数组建立是将模式串进行模式匹配。WOW！Amazing！next[i]确定的当模式串中第i个字符不匹配的时候，进行滑动后的位置。
+代码如下 	void Get_nextval(SString T, int next[]) { next[0] = 0; int i = 1, j = 0; next[1] = 0; while (i &amp;lt; T[0]) { if (j == 0 || T[i] == T[j]) { ++i; ++j; if (T[i] !</description>
     </item>
     
   </channel>

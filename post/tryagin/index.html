@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Tryagin // 李宇强</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="李宇强" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="http://example.org/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tryagin"/>
+<meta name="twitter:description" content="Skip to content Pull requests Issues Marketplace Explore @Michael-li-Yuqiang
+170 2,944
+559  mandliya/algorithms_and_data_structures Code Issues 1 Pull requests 28 Projects 0 Wiki Insights You’re editing a file in a project you don’t have write access to. We’ve created a fork of this project for you to commit your proposed changes to. Submitting a change to this file will write it to a new branch in your fork, so you can send a pull request."/>
+
+    <meta property="og:title" content="Tryagin" />
+<meta property="og:description" content="Skip to content Pull requests Issues Marketplace Explore @Michael-li-Yuqiang
+170 2,944
+559  mandliya/algorithms_and_data_structures Code Issues 1 Pull requests 28 Projects 0 Wiki Insights You’re editing a file in a project you don’t have write access to. We’ve created a fork of this project for you to commit your proposed changes to. Submitting a change to this file will write it to a new branch in your fork, so you can send a pull request." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/tryagin/" />
+<meta property="article:published_time" content="2019-05-18T13:29:42&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-18T13:29:42&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="http://example.org/"><img class="app-header-avatar" src="/avatar.jpg" alt="李宇强" /></a>
+      <h1>李宇强</h1>
+      <p>Try it.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Tryagin</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 18, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <p>Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@Michael-li-Yuqiang</p>
+
+<p>170
+2,944</p>
+
+<pre><code>559
+</code></pre>
+
+<p>mandliya/algorithms_and_data_structures
+Code
+Issues 1
+Pull requests 28
+Projects 0
+Wiki
+Insights
+You’re editing a file in a project you don’t have write access to. We’ve created a fork of this project for you to commit your proposed changes to. Submitting a change to this file will write it to a new branch in your fork, so you can send a pull request.
+algorithms_and_data_structures/bit_manipulation/</p>
+
+<p>1</p>
+
+<p>/*</p>
+
+<p>2</p>
+
+<ul>
+<li>Add two binary numbers represented as string.</li>
+</ul>
+
+<p>3</p>
+
+<p>*</p>
+
+<p>4</p>
+
+<p>*/</p>
+
+<p>5</p>
+
+<p>#include <iostream></p>
+
+<p>6</p>
+
+<p>#include <string></p>
+
+<p>7</p>
+
+<p>#include <sstream></p>
+
+<p>8</p>
+
+<p>#include <algorithm></p>
+
+<p>9</p>
+
+<p>​</p>
+
+<p>10</p>
+
+<p>std::string addBinary( const std::string &amp; str1, const std::string &amp; str2 )</p>
+
+<p>11</p>
+
+<p>{</p>
+
+<p>12</p>
+
+<pre><code>std::string s1 = ( str1.length() &gt; str2.length() ? str1 : str2 );
+</code></pre>
+
+<p>13</p>
+
+<pre><code>std::string s2 = ( str1.length() &gt; str2.length() ? str2 : str1 );
+</code></pre>
+
+<p>14</p>
+
+<pre><code>int diff = s1.length() - s2.length();
+</code></pre>
+
+<p>15</p>
+
+<pre><code>std::stringstream ss;
+</code></pre>
+
+<p>16</p>
+
+<pre><code>while(diff) {
+</code></pre>
+
+<p>17</p>
+
+<pre><code>    ss &lt;&lt; &quot;0&quot;;
+</code></pre>
+
+<p>18</p>
+
+<pre><code>    --diff;
+</code></pre>
+
+<p>19</p>
+
+<pre><code>}
+</code></pre>
+
+<p>20</p>
+
+<pre><code>s2 = ss.str() + s2;
+</code></pre>
+
+<p>21</p>
+
+<pre><code>std::cout &lt;&lt; s1 &lt;&lt; std::endl;
+</code></pre>
+
+<p>22</p>
+
+<pre><code>std::cout &lt;&lt; s2 &lt;&lt; std::endl;
+</code></pre>
+
+<p>23</p>
+
+<pre><code>ss.str(std::string());
+</code></pre>
+
+<p>24</p>
+
+<pre><code>int i = s1.length() - 1;
+</code></pre>
+
+<p>25</p>
+
+<pre><code>int carry = 0;
+</code></pre>
+
+<p>26</p>
+
+<pre><code>while ( i &gt;= 0 ) {
+</code></pre>
+
+<p>27</p>
+
+<pre><code>    int x = ( s1[i] - '0') + ( s2[i] - '0') + carry;
+</code></pre>
+
+<p>28</p>
+
+<pre><code>    if ( x == 2 ) {
+</code></pre>
+
+<p>29</p>
+
+<pre><code>        x = 0;
+</code></pre>
+
+<p>30</p>
+
+<pre><code>        carry = 1;
+</code></pre>
+
+<p>31</p>
+
+<pre><code>    } 
+</code></pre>
+
+<p>32</p>
+
+<pre><code>    else if ( x == 3 ) {
+</code></pre>
+
+<p>33</p>
+
+<pre><code>        x = 1;
+</code></pre>
+
+<p>34</p>
+
+<pre><code>        carry = 1;
+</code></pre>
+
+<p>35</p>
+
+<pre><code>    } else {
+</code></pre>
+
+<p>36</p>
+
+<pre><code>        carry = 0;
+</code></pre>
+
+<p>37</p>
+
+<pre><code>    }
+</code></pre>
+
+<p>38</p>
+
+<pre><code>    ss &lt;&lt; x;
+</code></pre>
+
+<p>39</p>
+
+<pre><code>    --i;
+</code></pre>
+
+<p>40</p>
+
+<pre><code>}
+</code></pre>
+
+<p>41</p>
+
+<pre><code>if ( carry == 1 )
+</code></pre>
+
+<p>42</p>
+
+<pre><code>    ss &lt;&lt; carry;
+</code></pre>
+
+<p>43</p>
+
+<p>​</p>
+
+<p>44</p>
+
+<pre><code>std::string result = ss.str();
+</code></pre>
+
+<p>45</p>
+
+<pre><code>std::reverse(result.begin(), result.end());
+</code></pre>
+
+<p>46</p>
+
+<pre><code>return result;
+</code></pre>
+
+<p>47</p>
+
+<p>​</p>
+
+<p>48</p>
+
+<p>}</p>
+
+<p>49</p>
+
+<p>​</p>
+
+<p>50</p>
+
+<p>int main()</p>
+
+<p>@Michael-li-Yuqiang
+Propose file change
+Commit summary
+Optional extended description</p>
+
+<pre><code>© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

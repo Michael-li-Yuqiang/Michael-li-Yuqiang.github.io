@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Kmp算法 // 李宇强</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="李宇强" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="http://Michael-li-Yuqiang.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kmp算法"/>
+<meta name="twitter:description" content="简介 KMP算法是D.E.Knuth与V.R.Pratt和J.H.Morris同时发现的，因此人们称它为克努特-莫里斯-普拉特操作。此算法可以在O(m&#43;n)的线性时间内完成串的模式匹配操作。
+我被这个算法的代码的简单性，以及用这样简单的代码在线性时间内完成操作感到不可思议。其基本思想是在子串的不匹配的情况下，子串不动，模式串进行滑动。
+代码如下 	int Index_KMP(SString S, SString T, int pos) { int i = pos, j = 1; while (i &lt;= S[0] &amp;&amp; j &lt;= T[0]) { if (j == 0 || S[i] == T[j]) { &#43;&#43;i; &#43;&#43;j; } else { j = next[j]; } } if (j &gt; T[0]) return i - T[0]; else return 0; }  next数组 匹配过程是根据next数组进行的，而next数组建立是将模式串进行模式匹配。WOW！Amazing！next[i]确定的当模式串中第i个字符不匹配的时候，进行滑动后的位置。
+代码如下 	void Get_nextval(SString T, int next[]) { next[0] = 0; int i = 1, j = 0; next[1] = 0; while (i &lt; T[0]) { if (j == 0 || T[i] == T[j]) { &#43;&#43;i; &#43;&#43;j; if (T[i] !"/>
+
+    <meta property="og:title" content="Kmp算法" />
+<meta property="og:description" content="简介 KMP算法是D.E.Knuth与V.R.Pratt和J.H.Morris同时发现的，因此人们称它为克努特-莫里斯-普拉特操作。此算法可以在O(m&#43;n)的线性时间内完成串的模式匹配操作。
+我被这个算法的代码的简单性，以及用这样简单的代码在线性时间内完成操作感到不可思议。其基本思想是在子串的不匹配的情况下，子串不动，模式串进行滑动。
+代码如下 	int Index_KMP(SString S, SString T, int pos) { int i = pos, j = 1; while (i &lt;= S[0] &amp;&amp; j &lt;= T[0]) { if (j == 0 || S[i] == T[j]) { &#43;&#43;i; &#43;&#43;j; } else { j = next[j]; } } if (j &gt; T[0]) return i - T[0]; else return 0; }  next数组 匹配过程是根据next数组进行的，而next数组建立是将模式串进行模式匹配。WOW！Amazing！next[i]确定的当模式串中第i个字符不匹配的时候，进行滑动后的位置。
+代码如下 	void Get_nextval(SString T, int next[]) { next[0] = 0; int i = 1, j = 0; next[1] = 0; while (i &lt; T[0]) { if (j == 0 || T[i] == T[j]) { &#43;&#43;i; &#43;&#43;j; if (T[i] !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Michael-li-Yuqiang.github.io/post/kmp/" />
+<meta property="article:published_time" content="2019-05-24T12:37:01&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-24T12:37:01&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="http://Michael-li-Yuqiang.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="李宇强" /></a>
+      <h1>李宇强</h1>
+      <p>欢迎来到我的个人博客，无极县政府的小伙伴！</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Kmp算法</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 24, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h4 id="简介"><em>简介</em></h4>
+
+<p>KMP算法是D.E.Knuth与V.R.Pratt和J.H.Morris同时发现的，因此人们称它为克努特-莫里斯-普拉特操作。此算法可以在O(m+n)的线性时间内完成串的模式匹配操作。</p>
+
+<p>我被这个算法的代码的简单性，以及用这样简单的代码在线性时间内完成操作感到不可思议。其基本思想是在子串的不匹配的情况下，子串不动，模式串进行滑动。</p>
+
+<h4 id="代码如下"><em>代码如下</em></h4>
+
+<pre><code>	int Index_KMP(SString S, SString T, int pos) {
+		int i = pos, j = 1;
+		while (i &lt;= S[0] &amp;&amp; j &lt;= T[0]) {
+			if (j == 0 || S[i] == T[j]) {
+				++i;
+				++j;
+			}
+			else {
+				j = next[j];
+			}
+		}
+		if (j &gt; T[0])
+			return i - T[0];
+		else
+			return 0;
+}
+</code></pre>
+
+<h4 id="next数组"><em>next数组</em></h4>
+
+<p>匹配过程是根据next数组进行的，而next数组建立是将模式串进行模式匹配。WOW！Amazing！next[i]确定的当模式串中第i个字符不匹配的时候，进行滑动后的位置。</p>
+
+<h4 id="代码如下-1"><em>代码如下</em></h4>
+
+<pre><code>	void Get_nextval(SString T, int next[])
+	{
+		next[0] = 0;
+		int i = 1, j = 0;
+		next[1] = 0;
+		while (i &lt; T[0]) {
+			if (j == 0 || T[i] == T[j]) {
+				++i;
+				++j;
+				if (T[i] != T[j])
+					next[i] = j;
+				else 
+					next[i] = next[j];
+			}
+		else
+			j = next[j];
+		}
+	}
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
